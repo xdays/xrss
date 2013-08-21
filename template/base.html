@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>xRSS</title>
+</head>
+<body>
+<h4>最新博客列表：</h4>
+{% for i,j in d.iteritems() %}
+    <h5>{{ i }}</h5>
+    <ul>
+    {% for k in j %}
+        <li><a href="{{ k.0 }}">{{ k.1 }}</a></li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+</body>
+</html>
