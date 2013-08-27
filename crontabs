@@ -1,0 +1,1 @@
+50 8 * * * cd /path/to/xrss/ && python xrss.py >/dev/null 2>&1
