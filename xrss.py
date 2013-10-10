@@ -7,6 +7,7 @@ import feedparser
 import datetime
 import mailer
 from jinja2 import Environment, FileSystemLoader
+from fuzzywuzzy import fuzz
 
 
 def str2list(string):
@@ -82,6 +83,12 @@ def get_entries(flist):
         entry = get_entry(i)
         try:
             if entry:
+                for e in entries:
+                    for k in entry:
+                        for j in entries[e]:
+                            if fuzz.ratio(j[1], k[1]) > 95:
+                                entry.remove(k)
+                                logger.info('remove duplicate %s from %s' % (k[1], i.feed.title))
                 entries[i.feed.title] = entry
         except:
             continue
