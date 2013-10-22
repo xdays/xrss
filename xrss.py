@@ -89,7 +89,10 @@ def get_entries(flist):
                             if fuzz.ratio(j[1], k[1]) > 95:
                                 entry.remove(k)
                                 logger.info('remove duplicate %s from %s' % (k[1], i.feed.title))
-                entries[i.feed.title] = entry
+                if entry:
+                    entries[i.feed.title] = entry
+                else:
+                    logger.info('remove empty feed %s' % i.feed.title)
         except:
             continue
     logger.info('get %s entries from %s feeds' % (len(entries), len(flist)))
