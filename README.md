@@ -1,36 +1,52 @@
-#简介
-自动获取博客更新内容，以邮件形式发出
+# Introduction
 
-#功能模块
-* 解析博客RSS
-* 将内容填充模版生成HTML
-* 将生成HTML发送给Gmail
-* 全程写日志
+Automatically fetch blog updates and send them out via email.
 
-#配置文件介绍
-##邮件配置
-* addresser 发送者邮箱
-* password 发送者密码
+# Functional Modules
 
-##主程序配置
-* template\_dir 模板路径
-* template\_file 模板文件名
-* stale\_date 过期日志
-* urls RSS源列表
-* recipients 收件人列表
+- Parse the blog's RSS feed.
+- Populate a template to generate HTML content.
+- Send the generated HTML to Gmail.
+- Log activities throughout the process.
 
-##日志配置
-标准的Python日志模块配置
+# Configuration File Overview
 
-#模块列表
-* ConfigParser
-* logging
-* logging.config
-* feedparser
-* datetime
-* mailer
-* jinja2
+## Email Configuration
 
-#工具
-##exractrss.py
-用于从网页中提取RSS源链接
+- addresser: sender's email address
+- password: sender's password
+
+## Main Program Configuration
+
+- template_dir: template directory
+- template_file: template file name
+- stale_date: expiration date for logs
+- urls: list of RSS sources
+- recipients: list of recipients
+
+## Logging Configuration
+
+Standard Python logging module configuration.
+
+# Module List
+
+- ConfigParser
+- logging
+- logging.config
+- feedparser
+- datetime
+- mailer
+- jinja2
+
+# Usage
+
+```bash
+pip install -r requirements.txt
+python3 main.py
+```
+
+# Tools
+
+## extractrss.py
+
+Used to extract RSS feed links from web pages.
